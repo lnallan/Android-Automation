@@ -1,5 +1,5 @@
 require 'appium_lib'
-#require 'sauce_whisk'  - NOT USING IN THIS TEST
+require 'sauce_whisk'  #- NOT USING IN THIS TEST
 require 'rspec'
 
 
