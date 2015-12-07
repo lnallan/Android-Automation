@@ -1,7 +1,5 @@
 Feature: US2FormValidator
 
-  Background: Given the app is available
-
   Scenario Outline: verify the git repository title
     Given the form is available
    	When I look for the project title
@@ -10,6 +8,7 @@ Feature: US2FormValidator
     Examples:
     |expectedTitle|
     |Form validation framework for iOS.|
+
 
 
 

@@ -3,24 +3,33 @@ require 'sauce_whisk'  #- NOT USING IN THIS TEST
 require 'rspec'
 
 
+
 Before do | scenario |
 
 # Start Android driver
   opts = {
       caps:
           { platformName: :android,
+            platformVersion: '5.0.2',
             app: 'D://Lakshman/Mobile Automation Setup/Android/Android/android-sdk/app-test.apk',
             app_package: 'com.ustwo.sample',
             app_activity: 'com.ustwo.sample.CommitListActivity',
             deviceName: 'Lucky A5',
             newCommandTimeout: 60,
-            deviceReadyTimeout: 20
+            deviceReadyTimeout: 60,
+
           }
   }
   @driver = Appium::Driver.new(opts)
-  @driver.start_driver
+  @driver.start_driver.manage.timeouts.implicit_wait = 30
+  @driver.default_wait = 30
+
+
+  Appium.promote_appium_methods Object
 
 end
+
+
 
 # "after all"
 After do | scenario |
@@ -35,6 +44,5 @@ After do | scenario |
 
   @driver.driver_quit
 
+
 end
-
-
