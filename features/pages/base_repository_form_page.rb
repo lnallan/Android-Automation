@@ -1,5 +1,5 @@
 require 'appium_lib'
-class BasePage < Driver
+class BasePage < AbstractDriver
 
   def initialize(driver)
     super(driver)
